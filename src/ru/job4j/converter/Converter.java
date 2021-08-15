@@ -33,12 +33,29 @@ public class Converter {
     }
 
     public static void main(String[] args) {
-        float euro = Converter.rubleToEuro(140) + Converter.dollarToEuro(15);
-        float dollars = Converter.rubleToDollar(240) + Converter.euroToDollar(30);
-        float rubles = Converter.dollarToRuble(10) + Converter.euroToRuble(20);
 
-        System.out.println("140 rubles plus 10 dollars are " + String.format("%.2f", euro) + " euro.");
-        System.out.println("240 rubles plus 30 euro are " + String.format("%.2f", dollars) + " dollars.");
-        System.out.println("10 dollars plus 20 euro are " + String.format("%.2f", rubles) + " rubles.");
+        // in values
+        float euroIn = 210;
+        float dollarsIn = 105;
+        float rublesIn = 530;
+
+        // out values
+        float euro = Converter.rubleToEuro(rublesIn) + Converter.dollarToEuro(dollarsIn) + euroIn;
+        float dollars = Converter.rubleToDollar(rublesIn) + Converter.euroToDollar(euroIn) + dollarsIn;
+        float rubles = Converter.dollarToRuble(dollarsIn) + Converter.euroToRuble(euroIn) + rublesIn;
+
+        // expected values
+        float totalExpectedDollars = 358.83f;
+        float totalExpectedEuro = 307.57f;
+        float totalExpectedRubles = 21530f;
+
+        // test: compare out and expected (rounding error less than 1 cent)
+        boolean testEuro = Math.abs(euro - totalExpectedEuro) < 0.01;
+        boolean testDollars = Math.abs(dollars - totalExpectedDollars) < 0.01;
+        boolean testRubles = Math.abs(rubles - totalExpectedRubles) < 0.01;
+
+        System.out.println("Expected total money in dollars: " + totalExpectedDollars + ". Result: " + dollars + ". Test passed: " + testDollars);
+        System.out.println("Expected total money in euro: " + totalExpectedEuro + ". Result: " + euro + ". Test passed: " + testEuro);
+        System.out.println("Expected total money in rubles: " + totalExpectedRubles + ". Result: " + rubles + ". Test passed: " + testRubles);
     }
 }

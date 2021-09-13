@@ -19,4 +19,12 @@ public class FactorialTest {
         int out = Factorial.calc(0);
         Assert.assertEquals(expected, out);
     }
+
+    @Test
+    public void whenCalculateFactorialForTwoThenTwo() {
+        int num = 2;
+        int expected = 2;
+        int out = Factorial.calc(2);
+        Assert.assertEquals(expected, out);
+    }
 }

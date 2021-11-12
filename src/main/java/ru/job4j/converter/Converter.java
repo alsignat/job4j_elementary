@@ -1,6 +1,11 @@
 package ru.job4j.converter;
 
 public class Converter {
+    /**
+     *
+     * @param value input money sum needed to exchange
+     * @return rsl output money sum in given currency
+     */
 
     public static float rubleToEuro(float value) {
         float rsl = value / 70;
@@ -34,22 +39,18 @@ public class Converter {
 
     public static void main(String[] args) {
 
-        // in values
         float euroIn = 210;
         float dollarsIn = 105;
         float rublesIn = 530;
 
-        // out values
         float euro = Converter.rubleToEuro(rublesIn) + Converter.dollarToEuro(dollarsIn) + euroIn;
         float dollars = Converter.rubleToDollar(rublesIn) + Converter.euroToDollar(euroIn) + dollarsIn;
         float rubles = Converter.dollarToRuble(dollarsIn) + Converter.euroToRuble(euroIn) + rublesIn;
 
-        // expected values
         float totalExpectedDollars = 358.83f;
         float totalExpectedEuro = 307.57f;
         float totalExpectedRubles = 21530f;
 
-        // test: compare out and expected (rounding error less than 1 cent)
         boolean testEuro = Math.abs(euro - totalExpectedEuro) < 0.01;
         boolean testDollars = Math.abs(dollars - totalExpectedDollars) < 0.01;
         boolean testRubles = Math.abs(rubles - totalExpectedRubles) < 0.01;

@@ -23,4 +23,22 @@ public class PointTest {
         double out = aPoint.distance(bPoint);
         Assert.assertEquals(expected, out, 0.01);
     }
+
+    @Test
+    public void whensdots1() {
+        double expected = 12.08;
+        Point aPoint = new Point(-1, 2, 8);
+        Point bPoint = new Point(10, 2, 3);
+        double out = aPoint.distance3D(bPoint);
+        Assert.assertEquals(expected, out, 0.01);
+    }
+
+    @Test
+    public void whensdots2() {
+        double expected = 4.58;
+        Point aPoint = new Point(4, 2, 5);
+        Point bPoint = new Point(0, 0, 6);
+        double out = aPoint.distance3D(bPoint);
+        Assert.assertEquals(expected, out, 0.01);
+    }
 }

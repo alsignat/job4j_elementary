@@ -41,4 +41,25 @@ public class MaxTest {
         int out = Max.max(50, 20);
         Assert.assertEquals(expected, out);
     }
+
+    @Test
+    public void max5and20and55() {
+        int a = 5;
+        int b = 20;
+        int c = 55;
+        int expected = 55;
+        int out = Max.max(5, 20, 55);
+        Assert.assertEquals(expected, out);
+    }
+
+    @Test
+    public void max1and12and17and3() {
+        int a = 1;
+        int b = 12;
+        int c = 17;
+        int d = 3;
+        int expected = 17;
+        int out = Max.max(1, 12, 17, 3);
+        Assert.assertEquals(expected, out);
+    }
 }

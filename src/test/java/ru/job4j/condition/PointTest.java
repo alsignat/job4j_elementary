@@ -25,7 +25,7 @@ public class PointTest {
     }
 
     @Test
-    public void when3dots1() {
+    public void whenMinus128and1023then12dot08() {
         double expected = 12.08;
         Point aPoint = new Point(-1, 2, 8);
         Point bPoint = new Point(10, 2, 3);
@@ -34,7 +34,7 @@ public class PointTest {
     }
 
     @Test
-    public void when3dots2() {
+    public void when425and006then4dot58() {
         double expected = 4.58;
         Point aPoint = new Point(4, 2, 5);
         Point bPoint = new Point(0, 0, 6);
